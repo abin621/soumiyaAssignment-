@@ -31,8 +31,3 @@
         (fsm/send svc :next))
       (is (= :red (sut/current-state svc))))))
 
-(comment
-  ;; Verification: Non-blocking / external timing verification
-  ;; Why important: Ensures real-world signal timing is decoupled from discrete :next step events.
-  ;; How to check: Exercise the machine through discrete :next transitions in tests and verify
-  ;; state changes occur strictly in response to :next rather than wall-clock delays.)

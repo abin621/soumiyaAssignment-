@@ -1,15 +1,11 @@
 (ns e5.one-way
   "One-way traffic light specification conforming to R1-R10.
    Starts at :red, advances on :next through the UK cycle, and supports
-   graceful transition to :red and :halt."
-  (:require [e5.one-way-without-ctrl :as base]
-            [statecharts.core :as fsm]))
+   graceful return to :red and :halt."
+  (:require [statecharts.core :as fsm]))
 
 (defn one-way-spec
-  "Returns the clj-statecharts machine definition for a single controlled signal.
-   - :next advances the UK signal cycle from :red.
-   - :halt transitions gracefully back to :red first if currently green/amber/red-amber,
-     and :halt from :red moves to :halt."
+  "Returns the clj-statecharts machine definition for a single controlled signal."
   []
   (fsm/machine
    {:id      :one-way
